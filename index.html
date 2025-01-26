@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Facts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #4a90e2;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ab8;
+        }
+
+        #factsContainer {
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fact {
+            background-color: #fff;
+            border: 1px solid #4a90e2; /* Added border */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .fact:hover {
+            transform: translateY(-5px);
+        }
+
+        .fact strong {
+            color: #4a90e2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Physics Facts</h1>
+    <button onclick="displayFact()">Show Next Physics Fact</button>
+    <div id="factsContainer"></div>
+
+    <script>
+        const physicsFacts = [
+            {
+                fact: "Ancient Origins",
+                detail: "The study of physics dates back to ancient civilizations, including the Greeks, who studied natural phenomena and sought to understand the laws of nature."
+            },
+            {
+                fact: "Aristotle's Influence",
+                detail: "Aristotle, a Greek philosopher, made significant contributions to early physics, particularly in the study of motion and the concept of the four elements: earth, water, air, and fire."
+            },
+            {
+                fact: "Galileo's Experiments",
+                detail: "Galileo Galilei is often considered the father of modern physics due to his use of experiments and mathematics to study motion and astronomy."
+            },
+            {
+                fact: "Newton's Laws",
+                detail: "Isaac Newton formulated the three laws of motion and the law of universal gravitation, laying the foundation for classical mechanics."
+            },
+            {
+                fact: "Electromagnetism",
+                detail: "James Clerk Maxwell developed the theory of electromagnetism, unifying electricity, magnetism, and light into a single theory."
+            },
+            {
+                fact: "Thermodynamics",
+                detail: "The study of thermodynamics emerged in the 19th century, focusing on heat, energy, and work, with key contributions from scientists like Sadi Carnot and Lord Kelvin."
+            },
+            {
+                fact: "Quantum Mechanics",
+                detail: "In the early 20th century, quantum mechanics revolutionized physics by introducing concepts like wave-particle duality and uncertainty, with pioneers such as Max Planck and Albert Einstein."
+            },
+            {
+                fact: "Theory of Relativity",
+                detail: "Albert Einstein's theory of relativity, including the famous equation E=mc², transformed our understanding of space, time, and energy."
+            },
+            {
+                fact: "Standard Model",
+                detail: "The Standard Model of particle physics, developed in the mid-20th century, describes the fundamental particles and forces in the universe, excluding gravity."
+            },
+            {
+                fact: "Higgs Boson Discovery",
+                detail: "In 2012, the discovery of the Higgs boson at CERN confirmed the existence of the Higgs field, which gives particles mass, completing the Standard Model."
+            }
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayFact() {
+            const factsContainer = document.getElementById('factsContainer');
+            factsContainer.innerHTML = ''; // Clear previous fact
+            const factObj = physicsFacts[currentFactIndex];
+            const factDiv = document.createElement('div');
+            factDiv.classList.add('fact');
+            factDiv.innerHTML = `<strong>${factObj.fact}:</strong> ${factObj.detail}`;
+            factsContainer.appendChild(factDiv);
+
+            // Update the index to show the next fact on the next click
+            currentFactIndex = (currentFactIndex + 1) % physicsFacts.length;
+        }
+    </script>
+</body>
+</html>
